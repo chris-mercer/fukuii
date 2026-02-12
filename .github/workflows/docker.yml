@@ -26,7 +26,7 @@ concurrency:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  DOCKERHUB_IMAGE: chipprbots/fukuii
+  DOCKERHUB_IMAGE: ${{ github.repository_owner }}/fukuii
 
 jobs:
   docker-build-main:

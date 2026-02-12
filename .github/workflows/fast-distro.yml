@@ -151,7 +151,7 @@ jobs:
             2. Extract (if using distribution package)
             3. Run the application
             
-            For more information, see the [main repository](https://github.com/chippr-robotics/fukuii).
+            For more information, see the [main repository](https://github.com/${{ github.repository }}).
           draft: false
           prerelease: true
           files: fast-distro-artifacts/*

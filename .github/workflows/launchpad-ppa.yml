@@ -10,7 +10,7 @@ on:
         required: true
 
 env:
-  PPA_NAME: chippr-robotics/fukuii
+  PPA_NAME: ${{ github.repository_owner }}/fukuii
   PACKAGE_NAME: fukuii
 
 jobs:
@@ -83,7 +83,7 @@ jobs:
             dch --newversion "${VERSION}-1~${SERIES}1" \
                 --distribution "${SERIES}" \
                 --force-distribution \
-                "Release version ${VERSION}. See https://github.com/chippr-robotics/fukuii/releases/tag/v${VERSION}"
+                "Release version ${VERSION}. See https://github.com/${{ github.repository }}/releases/tag/v${VERSION}"
       
       - name: Build source package
         env:

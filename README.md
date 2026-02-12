@@ -1,15 +1,15 @@
 ## <i>Gorgoroth Status</i>: 🟡 [eth/68, snap/1] - [View Status & Walkthroughs](docs/validation/GORGOROTH_STATUS.md) 
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/chippr-robotics/fukuii/HEAD/docs/images/fukuii-hex-logo.png" alt="Fukuii Logo" width="400"/>
+  <img src="https://raw.githubusercontent.com/chris-mercer/fukuii/HEAD/docs/images/fukuii-hex-logo.png" alt="Fukuii Logo" width="400"/>
 </div>
 
 # 🧠🪱 Fukuii Ethereum Client
 # ALPHA TEST PHASE - DO NOT USE IN PRODUCTION 
-[![CI](https://github.com/chippr-robotics/chordodes_fukuii/actions/workflows/ci.yml/badge.svg)](https://github.com/chippr-robotics/chordodes_fukuii/actions/workflows/ci.yml)
-[![Docker Build](https://github.com/chippr-robotics/fukuii/actions/workflows/docker.yml/badge.svg)](https://github.com/chippr-robotics/fukuii/actions/workflows/docker.yml)
-[![Nightly Build](https://github.com/chippr-robotics/fukuii/actions/workflows/nightly.yml/badge.svg)](https://github.com/chippr-robotics/fukuii/actions/workflows/nightly.yml)
-[![codecov](https://codecov.io/gh/chippr-robotics/fukuii/graph/badge.svg)](https://codecov.io/gh/chippr-robotics/fukuii)
+[![CI](https://github.com/chris-mercer/fukuii/actions/workflows/ci.yml/badge.svg)](https://github.com/chris-mercer/fukuii/actions/workflows/ci.yml)
+[![Docker Build](https://github.com/chris-mercer/fukuii/actions/workflows/docker.yml/badge.svg)](https://github.com/chris-mercer/fukuii/actions/workflows/docker.yml)
+[![Nightly Build](https://github.com/chris-mercer/fukuii/actions/workflows/nightly.yml/badge.svg)](https://github.com/chris-mercer/fukuii/actions/workflows/nightly.yml)
+[![codecov](https://codecov.io/gh/chris-mercer/fukuii/graph/badge.svg)](https://codecov.io/gh/chris-mercer/fukuii)
 
 Fukuii is a continuation and re‑branding of the Ethereum Classic client previously known as Mantis. Mantis was developed by Input Output (HK) as a Scala client for the Ethereum Classic (ETC) network. This project is an independent fork maintained by Chippr Robotics LLC with the aim of modernising the codebase and ensuring long‑term support.
 
@@ -46,7 +46,7 @@ This project uses GitHub Actions for continuous integration and delivery:
 - Milestone tracking and automatic closure
 
 **Quick Links:**
-- [🌐 Documentation Site](https://chippr-robotics.github.io/fukuii/) - Hosted documentation (GitHub Pages)
+- [🌐 Documentation Site](https://chris-mercer.github.io/fukuii/) - Hosted documentation (GitHub Pages)
 - [📚 Documentation Index](docs/README.md) - Complete documentation guide
 - [Repository Structure](docs/development/REPOSITORY_STRUCTURE.md) - Understand the codebase layout
 - [Workflow Documentation](.github/workflows/README.md)
@@ -109,7 +109,7 @@ Pre-built distribution archives are available for each release, allowing you to 
 
 ### Download from GitHub Releases
 
-Visit the [Releases page](https://github.com/chippr-robotics/fukuii/releases) to download the latest version:
+Visit the [Releases page](https://github.com/chris-mercer/fukuii/releases) to download the latest version:
 
 1. Navigate to the latest release
 2. Under "Assets", download `fukuii-<version>.zip`
@@ -139,10 +139,10 @@ The easiest way to run Fukuii is using Docker. Images are available on both GitH
 
 ```bash
 # Pull the latest release
-docker pull chipprbots/fukuii:latest
+docker pull chris-mercer/fukuii:latest
 
 # Or pull a specific version
-docker pull chipprbots/fukuii:v1.0.0
+docker pull chris-mercer/fukuii:v1.0.0
 
 # Run Fukuii
 docker run -d \
@@ -152,25 +152,25 @@ docker run -d \
   -p 30303:30303 \
   -v fukuii-data:/app/data \
   -v fukuii-conf:/app/conf \
-  chipprbots/fukuii:latest
+  chris-mercer/fukuii:latest
 ```
 
-**Docker Hub:** https://hub.docker.com/r/chipprbots/fukuii
+**Docker Hub:** https://hub.docker.com/r/chris-mercer/fukuii
 
 ### Using GitHub Container Registry (Recommended for Security-Critical Deployments)
 
 ```bash
 # Pull a specific version (recommended - official releases are signed)
-docker pull ghcr.io/chippr-robotics/fukuii:v1.0.0
+docker pull ghcr.io/chris-mercer/fukuii:v1.0.0
 
 # Verify the image signature (requires cosign)
 cosign verify \
-  --certificate-identity-regexp=https://github.com/chippr-robotics/fukuii \
+  --certificate-identity-regexp=https://github.com/chris-mercer/fukuii \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
-  ghcr.io/chippr-robotics/fukuii:v1.0.0
+  ghcr.io/chris-mercer/fukuii:v1.0.0
 
 # Or pull the latest development version
-docker pull ghcr.io/chippr-robotics/fukuii:develop
+docker pull ghcr.io/chris-mercer/fukuii:develop
 
 # Run Fukuii
 docker run -d \
@@ -180,10 +180,10 @@ docker run -d \
   -p 30303:30303 \
   -v fukuii-data:/app/data \
   -v fukuii-conf:/app/conf \
-  ghcr.io/chippr-robotics/fukuii:v1.0.0
+  ghcr.io/chris-mercer/fukuii:v1.0.0
 ```
 
-**Security Note:** Release images published to `ghcr.io/chippr-robotics/fukuii` are:
+**Security Note:** Release images published to `ghcr.io/chris-mercer/fukuii` are:
 - ✅ Signed with [Cosign](https://github.com/sigstore/cosign) (keyless, using GitHub OIDC)
 - ✅ Include SLSA provenance attestations for supply chain verification
 - ✅ Include Software Bill of Materials (SBOM)
@@ -475,7 +475,7 @@ metadata:
 spec:
   containers:
   - name: fukuii
-    image: ghcr.io/chippr-robotics/chordodes_fukuii:v1.0.0
+    image: ghcr.io/chris-mercer/fukuii:v1.0.0
     ports:
     - containerPort: 8546
       name: rpc
@@ -503,7 +503,7 @@ spec:
 version: '3.8'
 services:
   fukuii:
-    image: ghcr.io/chippr-robotics/chordodes_fukuii:v1.0.0
+    image: ghcr.io/chris-mercer/fukuii:v1.0.0
     ports:
       - "8546:8546"
       - "30303:30303"

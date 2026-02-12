@@ -13,8 +13,8 @@ concurrency:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: chippr-robotics/chordodes_fukuii
-  DOCKERHUB_IMAGE: chipprbots/fukuii
+  IMAGE_NAME: ${{ github.repository }}
+  DOCKERHUB_IMAGE: ${{ github.repository_owner }}/fukuii
 
 jobs:
   create-release:
