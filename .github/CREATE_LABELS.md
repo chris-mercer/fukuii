@@ -47,7 +47,7 @@ You can also create labels using the GitHub REST API:
 ```bash
 # Set your GitHub token
 TOKEN="your_github_token"
-OWNER="chippr-robotics"
+OWNER="chris-mercer"
 REPO="fukuii"
 
 # Create wraith label

@@ -109,7 +109,7 @@ jobs:
                     }
                   }
                 ],
-                "purl": "pkg:github/chippr-robotics/fukuii@${VERSION}"
+                "purl": "pkg:github/${GITHUB_REPOSITORY}@${VERSION}"
               }
             },
             "components": []
@@ -164,7 +164,7 @@ jobs:
           fi
           
           echo "" >> CHANGELOG.md
-          echo "Full Changelog: https://github.com/chippr-robotics/fukuii/compare/${PREV_TAG}...v${VERSION}" >> CHANGELOG.md
+          echo "Full Changelog: https://github.com/${{ github.repository }}/compare/${PREV_TAG}...v${VERSION}" >> CHANGELOG.md
           
           cat CHANGELOG.md
       
@@ -380,7 +380,7 @@ jobs:
       contents: write
     uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@5a775b367a56d5bd118a224a811bba288150a563 # v1.10.0
     with:
-      image: ghcr.io/chippr-robotics/chordodes_fukuii
+      image: ghcr.io/${{ github.repository }}
       digest: ${{ needs.build-and-push-image.outputs.image-digest }}
       registry-username: ${{ github.actor }}
     secrets:

@@ -84,20 +84,14 @@ template: |
   - **Distribution Package**: `fukuii-$RESOLVED_VERSION.zip` - Full distribution with scripts and configuration
   - **Assembly JAR**: `fukuii-assembly-$RESOLVED_VERSION.jar` - Standalone executable JAR
   - **SBOM**: Software Bill of Materials in CycloneDX JSON format
-  - **Docker Image**: `ghcr.io/chippr-robotics/chordodes_fukuii:v$RESOLVED_VERSION`
+  - **Docker Image**: Available on GitHub Container Registry
     - ✅ Signed with Cosign (keyless, GitHub OIDC)
     - ✅ Includes SLSA Level 3 provenance attestations
     - ✅ Includes SBOM
 
   ## 🔐 Verification
 
-  Verify the Docker image signature:
-  ```bash
-  cosign verify \
-    --certificate-identity-regexp=https://github.com/chippr-robotics/fukuii \
-    --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
-    ghcr.io/chippr-robotics/chordodes_fukuii:v$RESOLVED_VERSION
-  ```
+  Verify the Docker image signature using cosign (see release notes for specific image reference).
 
   ## Contributors
 

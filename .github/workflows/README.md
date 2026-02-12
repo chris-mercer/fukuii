@@ -10,7 +10,7 @@ This directory contains the GitHub Actions workflows for continuous integration,
 
 **Purpose:** Deploys documentation from the `docs/` folder to GitHub Pages
 
-**URL:** [https://chippr-robotics.github.io/fukuii/](https://chippr-robotics.github.io/fukuii/)
+**URL:** [https://chris-mercer.github.io/fukuii/](https://chris-mercer.github.io/fukuii/)
 
 **Steps:**
 1. Checks out code
@@ -104,7 +104,7 @@ gh workflow run fast-distro.yml
 - `fukuii-dev`: Development environment
 - `fukuii`: Production application image
 
-**Registry:** `ghcr.io/chippr-robotics/fukuii` (Development builds)
+**Registry:** `ghcr.io/chris-mercer/fukuii` (Development builds)
 
 **Tags:**
 - Branch name (e.g., `main`, `develop`)
@@ -113,7 +113,7 @@ gh workflow run fast-distro.yml
 - Git SHA (e.g., `sha-abc123`)
 - `latest` (default branch only)
 
-**Note:** Development images built by this workflow are **not signed** and do **not include provenance attestations**. For production deployments, use release images from `ghcr.io/chippr-robotics/chordodes_fukuii` which are built by `release.yml` with full security features.
+**Note:** Development images built by this workflow are **not signed** and do **not include provenance attestations**. For production deployments, use release images from `ghcr.io/chris-mercer/fukuii` which are built by `release.yml` with full security features.
 
 ---
 
@@ -130,7 +130,7 @@ gh workflow run fast-distro.yml
 4. Generates SBOM (Software Bill of Materials) in CycloneDX format
 5. Generates CHANGELOG.md from commits since last release
 6. Creates GitHub release with all artifacts
-7. Builds and publishes Docker image to `ghcr.io/chippr-robotics/chordodes_fukuii`
+7. Builds and publishes Docker image to `ghcr.io/chris-mercer/fukuii`
 8. Signs image with Cosign (keyless, using GitHub OIDC)
 9. Generates SLSA Level 3 provenance attestations
 10. Logs immutable image digest and tags
@@ -160,12 +160,12 @@ gh workflow run fast-distro.yml
 **Verification Example:**
 ```bash
 # Pull and verify a signed release image
-docker pull ghcr.io/chippr-robotics/chordodes_fukuii:v1.0.0
+docker pull ghcr.io/chris-mercer/fukuii:v1.0.0
 
 cosign verify \
-  --certificate-identity-regexp=https://github.com/chippr-robotics/fukuii \
+  --certificate-identity-regexp=https://github.com/chris-mercer/fukuii \
   --certificate-oidc-issuer=https://token.actions.githubusercontent.com \
-  ghcr.io/chippr-robotics/chordodes_fukuii:v1.0.0
+  ghcr.io/chris-mercer/fukuii:v1.0.0
 ```
 
 **Usage:**
@@ -201,7 +201,7 @@ git push origin v1.0.0
 
 **Installation (for end users):**
 ```bash
-sudo add-apt-repository ppa:chippr-robotics/fukuii
+sudo add-apt-repository ppa:chris-mercer/fukuii
 sudo apt-get update
 sudo apt-get install fukuii
 ```
@@ -214,7 +214,7 @@ sudo apt-get install fukuii
 
 **Notes:**
 - Packages are built on Launchpad's infrastructure after upload
-- Build status can be monitored at https://launchpad.net/~chippr-robotics/+archive/ubuntu/fukuii
+- Build status can be monitored at https://launchpad.net/~chris-mercer/+archive/ubuntu/fukuii
 - The PPA must be created manually on Launchpad before first use (see setup instructions below)
 
 ---
@@ -487,7 +487,7 @@ To enable Launchpad PPA publishing, follow these one-time setup steps:
 1. Create an account on [Launchpad](https://launchpad.net/)
 2. Go to your profile and click "Create a new PPA"
 3. Name the PPA `fukuii` (to match the workflow configuration)
-4. The PPA URL will be: `ppa:chippr-robotics/fukuii`
+4. The PPA URL will be: `ppa:chris-mercer/fukuii`
 
 ### 2. Generate GPG Key
 
